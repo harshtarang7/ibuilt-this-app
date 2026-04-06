@@ -1,12 +1,12 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { ExternalLink, Star, MessageSquare } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export default function FeaturedCard({
     title,
     description,
     tag,
-    stats
+    stats,
 }: {
     title: string
     description: string
@@ -17,50 +17,51 @@ export default function FeaturedCard({
     }
 }) {
     return (
-        <Card className="group relative overflow-hidden border-border/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
-            <CardHeader className="space-y-3 pb-4">
-                <div className="flex items-center justify-between">
-                    {tag && (
-                        <Badge variant="secondary" className="bg-primary/10 text-primary-foreground/90 font-medium hover:bg-primary/20 backdrop-blur-md">
-                            {tag}
-                        </Badge>
-                    )}
-                    <button className="text-muted-foreground/60 hover:text-primary transition-colors">
-                        <ExternalLink size={18} />
-                    </button>
+        <div className={cn(
+            "group relative flex flex-col h-full p-8 rounded-[32px] transition-all duration-500",
+            "bg-white/5 dark:bg-black/5 backdrop-blur-sm border border-gray-300 dark:border-white/5",
+            "hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 "
+        )}>
+            {/* Top Section: Tag and Action */}
+            <div className="flex items-center justify-between mb-10">
+                {tag && (
+                    <Badge variant="outline" className="px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] border-primary/20 bg-primary/5 text-primary rounded-full transition-all group-hover:bg-primary group-hover:text-primary-foreground transform group-hover:scale-105 duration-300">
+                        {tag}
+                    </Badge>
+                )}
+                <div className="p-2.5 rounded-full border border-border/40 group-hover:border-primary/40 opacity-40 group-hover:opacity-100 transition-all duration-500 cursor-pointer hover:bg-primary/10">
+                    <ExternalLink size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
-                <div>
-                    <CardTitle className="text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                        {title}
-                    </CardTitle>
-                    <CardDescription className="text-muted-foreground/80 line-clamp-2 mt-1 leading-relaxed">
-                        {description}
-                    </CardDescription>
-                </div>
-            </CardHeader>
-            <CardContent>
-                <div className="h-32 w-full rounded-lg bg-muted/40 animate-pulse-slow overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-                    <div className="flex items-center justify-center h-full text-muted-foreground/30 italic text-sm">
-                        Project Preview
+            </div>
+
+            {/* Core Content */}
+            <div className="grow flex flex-col justify-center space-y-4">
+                <h3 className="text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight">
+                    {title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors line-clamp-3">
+                    {description}
+                </p>
+            </div>
+
+            {/* Subtle Footer Stats */}
+            <div className="flex items-center justify-between pt-8 mt-12 border-t border-border/5">
+                <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-2 group/stat">
+                        <Star size={14} className="text-primary fill-primary/10 group-hover/stat:fill-primary transition-all duration-300" />
+                        <span className="text-xs font-bold font-mono tracking-tight text-muted-foreground group-hover:text-foreground transition-colors">
+                            {stats?.stars?.toLocaleString() || 0}
+                        </span>
                     </div>
                 </div>
-            </CardContent>
-            <CardFooter className="flex items-center justify-between text-xs pt-4 border-t border-border/40">
-                <div className="flex items-center gap-4 text-muted-foreground font-medium">
-                    <span className="flex items-center gap-1.5 hover:text-foreground transition-colors">
-                        <Star size={14} className="text-orange-400 fill-orange-400/20" />
-                        {stats?.stars || 0}
-                    </span>
-                    {/* <span className="flex items-center gap-1.5 hover:text-foreground transition-colors">
-                        <MessageSquare size={14} className="text-blue-400 fill-blue-400/20" />
-                        {stats?.feedback || 0}
-                    </span> */}
-                </div>
-                <span className="text-muted-foreground/40 font-mono tracking-wider italic uppercase">
-                    verified launch
+
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground/30 group-hover:text-primary/50 transition-colors duration-300">
+                    Featured
                 </span>
-            </CardFooter>
-        </Card>
+            </div>
+
+            {/* Ambient Background Gradient (Visible on hover) */}
+            <div className="absolute inset-0 bg-linear-to-tr from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[32px]" />
+        </div>
     );
 }

@@ -42,7 +42,7 @@ export default function HeroSection() {
                 </div>
 
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground max-w-4xl text-balance animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 leading-[1.1]">
-                    Share What You&apos;ve <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-secondary animate-gradient-x">Built</span>,
+                    Share What You&apos;ve <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary/80 to-secondary animate-gradient-x">Built</span>,
                     <br />  Discover What&apos;s <span className="italic font-serif font-medium text-accent-foreground">Launching</span>
                 </h1>
 
@@ -54,7 +54,7 @@ export default function HeroSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 items-center pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
-                    <Button size="lg" className="rounded-full px-8 py-6 text-lg font-bold shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95 gap-2 group text-black">
+                    <Button size="lg" className="rounded-full px-8 py-6 text-lg font-bold shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95 gap-2 group text-white">
                         <Rocket className="w-5 h-5 group-hover:animate-bounce " />
                         Share your project
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -64,7 +64,7 @@ export default function HeroSection() {
                     </Button>
                 </div>
 
-                <div className="grid grid-cols-1 gap-16 sm:grid-cols-1 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-3 w-full max-w-5xl mx-auto pt-8">
                     {statsData.map((stat) => {
                         return (
                             <StatCards key={stat.label} {...stat} />
