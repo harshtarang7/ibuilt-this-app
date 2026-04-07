@@ -5,22 +5,28 @@ import Link from "next/link";
 
 const cardData = [
     {
-        title: "MagicUI components",
+        id: 1,
+        name: "MagicUI components",
         description: "A comprehensive library of modern components for React and Tailwind CSS developers.",
         tags: ["UI Library", "Modern", "React"],
-        stats: { stars: 1243, feedback: 85 }
+        votes: 1243,
+        isFeatured: true
     },
     {
-        title: "ChatGenius AI",
+        id: 2,
+        name: "ChatGenius AI",
         description: "Next-generation conversational AI that understands complex nuances in real-time customer talk.",
         tags: ["AI", "SaaS", "LLM"],
-        stats: { stars: 840, feedback: 120 }
+        votes: 840,
+        isFeatured: true
     },
     {
-        title: "PaperFlow",
+        id: 3,
+        name: "PaperFlow",
         description: "Simplify your research workflow with easy-to-use paper management and citation tools.",
         tags: ["Productivity", "Research", "Notes"],
-        stats: { stars: 520, feedback: 42 }
+        votes: 520,
+        isFeatured: true
     },
 ];
 
@@ -53,7 +59,7 @@ export default function Featured() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
                 {cardData.map((card) => (
-                    <FeaturedCard key={card.title} {...card} />
+                    <FeaturedCard key={card.id} {...card} />
                 ))}
             </div>
         </section>
