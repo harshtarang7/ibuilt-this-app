@@ -8,6 +8,13 @@
       "when": 1775565525272,
       "tag": "0000_quiet_centennial",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1775569187444,
+      "tag": "0001_tense_vampiro",
+      "breakpoints": true
     }
   ]
 }

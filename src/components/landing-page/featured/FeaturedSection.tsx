@@ -36,7 +36,7 @@ export default async function Featured() {
             </div> */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-                {products.map((product) => (
+                {products.filter((product) => product.isFeatured).map(product => (
                     <FeaturedCard key={product.id} {...product} />
                 ))}
             </div>
