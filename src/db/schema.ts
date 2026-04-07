@@ -1,21 +1,22 @@
-import { integer, pgTable, varchar, serial, text, timestamp, pgEnum, index } from "drizzle-orm/pg-core";
+import { integer, pgTable, varchar, serial, text, timestamp, pgEnum, index, boolean } from "drizzle-orm/pg-core";
 
 export interface Product {
     id: number;
-    name: string;
-    slug: string;
-    tagline?: string;
-    description?: string;
-    websiteUrl?: string;
-    tags: string[];
-    voteCount: number;
-    createdAt: Date;
-    updatedAt: Date;
-    approvedAt?: Date;
-    status: "pending" | "approved" | "rejected";
-    submittedBy: string;
-    userId: number;
-    organizedId?: number;
+    name: string | null;
+    slug: string | null;
+    tagline?: string | null;
+    description?: string | null;
+    websiteUrl?: string | null;
+    tags: string[] | null;
+    voteCount: number | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+    approvedAt?: Date | null;
+    status: "pending" | "approved" | "rejected" | null;
+    submittedBy: string | null;
+    userId: number | null;
+    organizedId?: number | null;
+    isFeatured: boolean | null;
 }
 
 export const productStatusEnum = pgEnum("product_status", [
@@ -61,6 +62,7 @@ export const productsTable = pgTable("products", {
     updatedAt: timestamp("updated_at").defaultNow(),
 
     approvedAt: timestamp("approved_at"),
+    isFeatured: boolean("is_featured").default(false),
 },
 
     (table) => ({

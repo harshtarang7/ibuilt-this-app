@@ -16,6 +16,7 @@ export const allProducts: NewProduct[] = [
         userId: 1,
         createdAt: new Date(new Date("2024-01-01")),
         organizedId: 1,
+        isFeatured: true,
     },
     {
         name: "AI Writer Pro",
@@ -30,6 +31,7 @@ export const allProducts: NewProduct[] = [
         userId: 1,
         createdAt: new Date("2024-01-01"),
         organizedId: 2,
+        isFeatured: true,
     },
     {
         name: "FitTrack",
@@ -44,6 +46,7 @@ export const allProducts: NewProduct[] = [
         userId: 1,
         createdAt: new Date("2024-01-01"),
         organizedId: 3,
+        isFeatured: true,
     },
     {
         name: "CodeSnap",
@@ -58,6 +61,7 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 2,
+        isFeatured: false,
     },
     {
         name: "TaskZen",
@@ -72,6 +76,7 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 1,
+        isFeatured: false,
     },
     {
         name: "ShopEase",
@@ -86,6 +91,7 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 4,
+        isFeatured: true,
     },
     {
         name: "Learnify",
@@ -100,6 +106,7 @@ export const allProducts: NewProduct[] = [
         userId: 1,
         createdAt: new Date("2024-01-01"),
         organizedId: 3,
+        isFeatured: true,
     },
     {
         name: "TravelMate",
@@ -114,6 +121,8 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 5,
+        isFeatured: false,
+
     },
     {
         name: "HealthSync",
@@ -128,6 +137,7 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 3,
+        isFeatured: false,
     },
     {
         name: "PitchDeck AI",
@@ -142,5 +152,6 @@ export const allProducts: NewProduct[] = [
         createdAt: new Date("2024-01-01"),
         userId: 1,
         organizedId: 2,
+        isFeatured: true,
     },
 ];

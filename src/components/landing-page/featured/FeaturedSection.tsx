@@ -2,35 +2,13 @@ import SectionHeader from "@/components/common/SectionHeader";
 import FeaturedCard from "./FeaturedCard";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
+import getFeaturedProducts from "@/lib/products/product.select";
 
-const cardData = [
-    {
-        id: 1,
-        name: "MagicUI components",
-        description: "A comprehensive library of modern components for React and Tailwind CSS developers.",
-        tags: ["UI Library", "Modern", "React"],
-        votes: 1243,
-        isFeatured: true
-    },
-    {
-        id: 2,
-        name: "ChatGenius AI",
-        description: "Next-generation conversational AI that understands complex nuances in real-time customer talk.",
-        tags: ["AI", "SaaS", "LLM"],
-        votes: 840,
-        isFeatured: true
-    },
-    {
-        id: 3,
-        name: "PaperFlow",
-        description: "Simplify your research workflow with easy-to-use paper management and citation tools.",
-        tags: ["Productivity", "Research", "Notes"],
-        votes: 520,
-        isFeatured: true
-    },
-];
 
-export default function Featured() {
+
+export default async function Featured() {
+    const products = await getFeaturedProducts();
+
     return (
         <section className="py-16 w-full space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <div className="flex items-center justify-between">
@@ -58,8 +36,8 @@ export default function Featured() {
             </div> */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-                {cardData.map((card) => (
-                    <FeaturedCard key={card.id} {...card} />
+                {products.map((product) => (
+                    <FeaturedCard key={product.id} {...product} />
                 ))}
             </div>
         </section>

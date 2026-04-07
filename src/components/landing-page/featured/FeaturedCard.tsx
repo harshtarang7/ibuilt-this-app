@@ -2,15 +2,9 @@ import { ExternalLink, Star, ArrowUpRight, StarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Product } from "@/db/schema";
 
-interface Product {
-    id: number;
-    name: string;
-    description: string;
-    tags: string[];
-    isFeatured: boolean;
-    votes: number;
-}
+
 
 export default function FeaturedCard(product: Product) {
     return (
@@ -23,7 +17,7 @@ export default function FeaturedCard(product: Product) {
                     <div className="flex flex-wrap gap-2 max-w-[80%]">
                         {/* Main Featured Badge */}
 
-                        {product.tags.map((tag, idx) => (
+                        {product?.tags?.map((tag, idx) => (
                             <Badge
                                 key={idx}
                                 variant="secondary"
@@ -44,7 +38,7 @@ export default function FeaturedCard(product: Product) {
                         {product.name}
                     </h3>
                     <p className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-3">
-                        {product.description}
+                        {product?.description}
                     </p>
                 </div>
 
@@ -54,13 +48,13 @@ export default function FeaturedCard(product: Product) {
                         <div className="flex items-center gap-1.5">
                             <Star size={14} className="text-amber-500 fill-amber-500" />
                             <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                                {product.votes?.toLocaleString() || 0}
+                                {product?.voteCount?.toLocaleString() || 0}
                             </span>
                         </div>
                     </div>
 
                     <div>
-                        {product.isFeatured && (
+                        {product?.isFeatured && (
                             <Badge
                                 variant="default"
                                 className="px-2.5 py-0.5 text-[10px] font-bold uppercase rounded-md bg-primary text-white border-transparent"
